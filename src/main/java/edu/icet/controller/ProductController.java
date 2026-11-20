@@ -1,5 +1,6 @@
 package edu.icet.controller;
 
+import edu.icet.entity.ProductEntity;
 import edu.icet.model.Product;
 import edu.icet.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
 public class ProductController {
 
 
@@ -18,12 +18,12 @@ public class ProductController {
         this.service=service;
     }
 
-    @PostMapping
+    @PostMapping("/product/create")
     void createProduct(@RequestBody Product product){
         service.createProduct(product);
     }
-    @GetMapping
-    List<Product>getProducts(){
+    @GetMapping("/product/get")
+    Iterable<ProductEntity> getProducts(){
         return service.getProducts();
     }
 }

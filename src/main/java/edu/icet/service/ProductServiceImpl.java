@@ -6,8 +6,6 @@ import edu.icet.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class ProductServiceImpl {
 
@@ -24,7 +22,7 @@ public class ProductServiceImpl {
         repository.save(entity);
 
     }
-    public List<Product>getProducts(){
-        return null;
+    public Iterable<ProductEntity>getProducts(){
+        return repository.findAll();
     }
 }
